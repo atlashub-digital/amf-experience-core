@@ -12,7 +12,10 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
@@ -20,7 +23,7 @@
     "prepare": "npm run build"
   },
   "dependencies": {
-    "@atlashub/amf-content-schema": "github:atlashub-digital/amf-content-schema#foundation/v0.1"
+    "@atlashub/amf-content-schema": "github:atlashub-digital/amf-content-schema#d5c8c2056b1ac4d82e40ae47cc968f9450b0b32b"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
