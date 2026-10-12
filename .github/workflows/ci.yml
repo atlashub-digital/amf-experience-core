@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4 — verified GitHub tag
         with:
           repository: atlashub-digital/amf-content-schema
-          ref: 3cf56c55821cb9645578382ad0873078fea883c4
+          ref: 5e4381ee896c8e468aeba876120d7816dcb63fcc
           path: .ci/content-schema
       - name: Build isolated Schema artifact
         working-directory: .ci/content-schema

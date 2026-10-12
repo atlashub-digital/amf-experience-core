@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
         with:
           repository: atlashub-digital/amf-content-schema
-          ref: 3cf56c55821cb9645578382ad0873078fea883c4
+          ref: 5e4381ee896c8e468aeba876120d7816dcb63fcc
           path: .ci/content-schema
       - name: Build Schema artifact (publisher-side)
         run: |
