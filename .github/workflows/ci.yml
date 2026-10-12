@@ -16,12 +16,12 @@ jobs:
       matrix:
         node: [22, 24]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4 — verified GitHub tag
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4 — verified GitHub tag
         with:
           node-version: ${{ matrix.node }}
       - name: Checkout approved Schema source for publisher-side build only
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4 — verified GitHub tag
         with:
           repository: atlashub-digital/amf-content-schema
           ref: 3cf56c55821cb9645578382ad0873078fea883c4
@@ -42,7 +42,7 @@ jobs:
       - run: npm run verify:artifact
         env:
           AMF_SCHEMA_ARTIFACT: ${{ github.workspace }}/.artifacts/atlashub-amf-content-schema-0.2.0.tgz
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4 — verified GitHub tag
         with:
           name: amf-experience-core-0.2.0-node-${{ matrix.node }}
           path: |
