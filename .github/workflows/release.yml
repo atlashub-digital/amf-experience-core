@@ -38,8 +38,10 @@ jobs:
           mkdir -p "$GITHUB_WORKSPACE/.ci/artifacts"
           npm pack --ignore-scripts --pack-destination "$GITHUB_WORKSPACE/.ci/artifacts"
 
-      # Core: validação + artifact
-      - run: npm install --ignore-scripts
+      # Core: validação + artifact (peer instalado a partir do artifact do Schema,
+      # procedimento docs/ARTIFACTS.md; npm install a seco tentaria resolver o
+      # peer no registry com 401)
+      - run: npm install --ignore-scripts --no-save --package-lock=false "$GITHUB_WORKSPACE/.ci/artifacts/atlashub-digital-amf-content-schema-0.2.0.tgz"
       - run: npm run typecheck
       - run: npm test
       - run: npm run build

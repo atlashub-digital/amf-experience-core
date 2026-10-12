@@ -1,6 +1,6 @@
 {
   "name": "@atlashub-digital/amf-experience-core",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Headless reusable product primitives for AMF projects",
   "type": "module",
   "license": "UNLICENSED",
