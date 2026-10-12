@@ -35,6 +35,7 @@ jobs:
           cd .ci/content-schema
           npm install --ignore-scripts
           npm run build
+          mkdir -p "$GITHUB_WORKSPACE/.ci/artifacts"
           npm pack --ignore-scripts --pack-destination "$GITHUB_WORKSPACE/.ci/artifacts"
 
       # Core: validação + artifact
