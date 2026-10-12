@@ -46,7 +46,7 @@ jobs:
       - run: npm run pack:artifact
       - run: npm run verify:artifact
         env:
-          AMF_SCHEMA_ARTIFACT: ${{ github.workspace }}/.ci/artifacts/atlashub-amf-content-schema-0.2.0.tgz
+          AMF_SCHEMA_ARTIFACT: ${{ github.workspace }}/.ci/artifacts/atlashub-digital-amf-content-schema-0.2.0.tgz
 
       # A tag vX.Y.Z tem de corresponder exatamente ao version do package.json
       - name: Validate tag matches package version
@@ -63,7 +63,7 @@ jobs:
       # Publicação apenas via GITHUB_TOKEN nativo do repo (sem PAT permanente).
       - name: Publish (só em tag)
         if: github.ref_type == 'tag'
-        run: npm publish .artifacts/atlashub-amf-experience-core-$(node -p "require('./package.json').version").tgz
+        run: npm publish .artifacts/atlashub-digital-amf-experience-core-$(node -p "require('./package.json').version").tgz
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Dry-run (sem tag)

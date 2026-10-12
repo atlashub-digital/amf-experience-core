@@ -1,7 +1,7 @@
 import {
   ContentManifestSchema, findManifestProgram,
   type Program, type ProgramUnit, type Publication,
-} from "@atlashub/amf-content-schema";
+} from "@atlashub-digital/amf-content-schema";
 import type { ContentSource } from "./content.js";
 import {
   conservativeAccessResolver, type AccessContext, type AccessDecision, type AccessResolver,

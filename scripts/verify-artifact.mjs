@@ -19,13 +19,13 @@ const consumer = mkdtempSync(path.join(tmpdir(), "amf-core-consumer-"));
 try {
   writeFileSync(path.join(consumer, "package.json"), JSON.stringify({ name: "artifact-consumer-test", version: "1.0.0", private: true, type: "module" }));
   execFileSync("npm", ["install", "--ignore-scripts", "--package-lock=false", "--no-audit", "--no-fund", archive, path.resolve(schema)], { cwd: consumer, stdio: "inherit" });
-  const installed = JSON.parse(readFileSync(path.join(consumer, "node_modules/@atlashub/amf-experience-core/package.json"), "utf8"));
+  const installed = JSON.parse(readFileSync(path.join(consumer, "node_modules/@atlashub-digital/amf-experience-core/package.json"), "utf8"));
   for (const hook of ["prepare", "preinstall", "install", "postinstall"]) assert.equal(installed.scripts?.[hook], undefined);
-  assert.equal(installed.peerDependencies["@atlashub/amf-content-schema"], "0.2.0");
+  assert.equal(installed.peerDependencies["@atlashub-digital/amf-content-schema"], "0.2.0");
   assert.ok(!JSON.stringify(installed.dependencies ?? {}).includes("github:"));
   writeFileSync(path.join(consumer, "smoke.mjs"), `
 import assert from "node:assert/strict";
-import { createManifestContentSource, loadJourneyModel, createJourneyProgress, applyJourneyProgress, authorizeJourney } from "@atlashub/amf-experience-core";
+import { createManifestContentSource, loadJourneyModel, createJourneyProgress, applyJourneyProgress, authorizeJourney } from "@atlashub-digital/amf-experience-core";
 import { readFileSync } from "node:fs";
 const raw = JSON.parse(readFileSync(process.argv[2], "utf8"));
 const source = createManifestContentSource(raw);
@@ -39,7 +39,7 @@ console.log("PASS built artifact ESM import and Journey");
 `);
   execFileSync(process.execPath, [path.join(consumer, "smoke.mjs"), path.join(root, "fixtures/journey-manifest.json")], { cwd: consumer, stdio: "inherit" });
   writeFileSync(path.join(consumer, "consumer.ts"), `
-import type { JourneyModel, JourneyScope, JourneyProgressAdapter, ProgramContentSource } from "@atlashub/amf-experience-core";
+import type { JourneyModel, JourneyScope, JourneyProgressAdapter, ProgramContentSource } from "@atlashub-digital/amf-experience-core";
 const scope: JourneyScope = { projectId: "project", memberId: "member", programId: "program" };
 export type Contract = [JourneyModel, JourneyProgressAdapter, ProgramContentSource];
 export { scope };

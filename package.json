@@ -1,5 +1,5 @@
 {
-  "name": "@atlashub/amf-experience-core",
+  "name": "@atlashub-digital/amf-experience-core",
   "version": "0.2.0",
   "description": "Headless reusable product primitives for AMF projects",
   "type": "module",
@@ -35,6 +35,13 @@
     "node": ">=22"
   },
   "peerDependencies": {
-    "@atlashub/amf-content-schema": "0.2.0"
+    "@atlashub-digital/amf-content-schema": "0.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atlashub-digital/amf-experience-core.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
