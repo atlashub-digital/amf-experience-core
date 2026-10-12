@@ -14,7 +14,7 @@ future registry or versioned artifact service, without changing those primitives
 ## Publisher-side preparation
 
 Build the approved Schema separately, from immutable source commit
-3cf56c55821cb9645578382ad0873078fea883c4, and pack its already-built output.
+5e4381ee896c8e468aeba876120d7816dcb63fcc, and pack its already-built output.
 CI uses a separate checkout in .ci/content-schema; no workspace is copied into it.
 This is build provenance/test setup, not a Vercel workaround or published channel.
 

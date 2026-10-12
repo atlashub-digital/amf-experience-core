@@ -2,8 +2,8 @@ import type {
   ContentManifest,
   Publication,
   Program,
-} from "@atlashub/amf-content-schema";
-import { ContentManifestSchema, findManifestProgram, listManifestPrograms } from "@atlashub/amf-content-schema";
+} from "@atlashub-digital/amf-content-schema";
+import { ContentManifestSchema, findManifestProgram, listManifestPrograms } from "@atlashub-digital/amf-content-schema";
 
 export interface ContentSource {
   id: string;

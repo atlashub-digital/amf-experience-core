@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
-import { ContentManifestSchema } from "@atlashub/amf-content-schema";
+import { ContentManifestSchema } from "@atlashub-digital/amf-content-schema";
 import {
   createManifestContentSource, createJourneyModel, loadJourneyModel,
   authorizeJourney, conservativeAccessResolver,

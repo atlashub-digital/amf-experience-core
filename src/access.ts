@@ -1,4 +1,4 @@
-import type { AccessPolicy } from "@atlashub/amf-content-schema";
+import type { AccessPolicy } from "@atlashub-digital/amf-content-schema";
 
 export type AccessContext = {
   authenticated: boolean;

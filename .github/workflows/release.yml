@@ -1,0 +1,73 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      # actions/checkout v6.1.0 (SHA verificado via GitHub API)
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      # actions/setup-node v7.1.0 (SHA verificado via GitHub API)
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 22
+          registry-url: https://npm.pkg.github.com
+
+      # Dependency do core: build o Schema aprovado a partir do commit imutável
+      # referenciado em docs/ARTIFACTS.md (publisher-side, não release do schema).
+      - name: Checkout Schema (provenance fixa)
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: atlashub-digital/amf-content-schema
+          ref: 5e4381ee896c8e468aeba876120d7816dcb63fcc
+          path: .ci/content-schema
+      - name: Build Schema artifact (publisher-side)
+        run: |
+          set -e
+          cd .ci/content-schema
+          npm install --ignore-scripts
+          npm run build
+          npm pack --ignore-scripts --pack-destination "$GITHUB_WORKSPACE/.ci/artifacts"
+
+      # Core: validação + artifact
+      - run: npm install --ignore-scripts
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      # prepack não existe; pack:artifact constrói e gera .sha256/core-artifact.json
+      - run: npm run pack:artifact
+      - run: npm run verify:artifact
+        env:
+          AMF_SCHEMA_ARTIFACT: ${{ github.workspace }}/.ci/artifacts/atlashub-digital-amf-content-schema-0.2.0.tgz
+
+      # A tag vX.Y.Z tem de corresponder exatamente ao version do package.json
+      - name: Validate tag matches package version
+        if: github.ref_type == 'tag'
+        run: |
+          set -e
+          PKG_VERSION="$(node -p "require('./package.json').version")"
+          if [ "v$PKG_VERSION" != "${{ github.ref_name }}" ]; then
+            echo "::error::tag ${{ github.ref_name }} != package.json version v$PKG_VERSION"
+            exit 1
+          fi
+          echo "tag e version consistentes: v$PKG_VERSION"
+
+      # Publicação apenas via GITHUB_TOKEN nativo do repo (sem PAT permanente).
+      - name: Publish (só em tag)
+        if: github.ref_type == 'tag'
+        run: npm publish .artifacts/atlashub-digital-amf-experience-core-$(node -p "require('./package.json').version").tgz
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Dry-run (sem tag)
+        if: github.ref_type != 'tag'
+        run: npm publish .artifacts/*.tgz --dry-run
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

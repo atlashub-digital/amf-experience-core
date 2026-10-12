@@ -2,7 +2,7 @@ import type {
   Chapter,
   MediaAsset,
   Publication,
-} from "@atlashub/amf-content-schema";
+} from "@atlashub-digital/amf-content-schema";
 
 export type ReaderCapabilities = {
   toc?: boolean;
