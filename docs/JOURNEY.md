@@ -4,7 +4,7 @@
 
 Programs are canonical Schema contracts, not Publications or UI components.
 The approved Schema is 0.2.0 (source provenance:
-3cf56c55821cb9645578382ad0873078fea883c4). Core consumers supply that built peer artifact.
+5e4381ee896c8e468aeba876120d7816dcb63fcc). Core consumers supply that built peer artifact.
 No content contract is copied/redefined here. No project-specific UI/copy,
 storage, calendar unlocking, payments or provider logic is implemented.
 
