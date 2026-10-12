@@ -44,8 +44,8 @@ jobs:
           AMF_SCHEMA_ARTIFACT: ${{ github.workspace }}/.artifacts/atlashub-digital-amf-content-schema-0.2.0.tgz
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4 — verified GitHub tag
         with:
-          name: amf-experience-core-0.2.0-node-${{ matrix.node }}
+          name: amf-experience-core-artifact-node-${{ matrix.node }}
           path: |
-            .artifacts/atlashub-digital-amf-experience-core-0.2.0.tgz
-            .artifacts/atlashub-digital-amf-experience-core-0.2.0.tgz.sha256
+            .artifacts/atlashub-digital-amf-experience-core-*.tgz
+            .artifacts/atlashub-digital-amf-experience-core-*.tgz.sha256
             .artifacts/core-artifact.json
