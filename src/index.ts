@@ -5,3 +5,5 @@ export * from "./modules.js";
 export * from "./project.js";
 export * from "./theme.js";
 export * from "./webreader.js";
+export * from "./journey.js";
+export * from "./journey-progress.js";
