@@ -33,4 +33,11 @@ Attendant and Companion are separate profiles. Companions are authenticated/priv
 
 ## Future modules
 
-Commerce, community, programs, analytics and provisioning will be added behind explicit adapters after the first pilots validate the boundaries.
+Commerce, community, analytics and provisioning will be added behind explicit adapters after the first pilots validate the boundaries.
+
+## Programs / Journey
+
+Canonical Programs come from Content Schema v0.2. JourneyModel resolves a
+validated, project-scoped manifest snapshot. Progress is a pure state value;
+persistence is an explicit project/member-scoped atomic CAS adapter.
+See [JOURNEY](JOURNEY.md) and [ARTIFACTS](ARTIFACTS.md).

@@ -1,0 +1,419 @@
+{
+  "schemaVersion": "0.2",
+  "project": "amf-contract-fixtures",
+  "publications": [
+    {
+      "schemaVersion": "0.2",
+      "id": "sample-article",
+      "slug": "small-pauses",
+      "type": "article",
+      "status": "preview",
+      "locale": "pt-BR",
+      "title": "Pequenas pausas",
+      "authors": [
+        "AMF"
+      ],
+      "body": {
+        "format": "blocks",
+        "blocks": [
+          {
+            "id": "article-title",
+            "type": "heading",
+            "text": "Um momento de atenção",
+            "level": 2
+          },
+          {
+            "id": "article-intro",
+            "type": "paragraph",
+            "text": "Uma pausa curta pode abrir espaço para observar o dia com mais calma."
+          },
+          {
+            "id": "article-note",
+            "type": "callout",
+            "title": "Exemplo de engenharia",
+            "text": "Esta fixture demonstra contratos de conteúdo; não é um produto editorial final.",
+            "tone": "note"
+          }
+        ]
+      },
+      "access": {
+        "mode": "public"
+      }
+    },
+    {
+      "schemaVersion": "0.2",
+      "id": "sample-guide",
+      "slug": "everyday-observation",
+      "type": "guide",
+      "status": "preview",
+      "locale": "pt-BR",
+      "title": "Guia de observação",
+      "authors": [
+        "AMF"
+      ],
+      "chapters": [
+        {
+          "id": "guide-start",
+          "slug": "start",
+          "title": "Começar",
+          "order": 0,
+          "body": {
+            "format": "blocks",
+            "blocks": [
+              {
+                "id": "guide-start-text",
+                "type": "paragraph",
+                "text": "Reserve alguns minutos para observar uma rotina cotidiana."
+              }
+            ]
+          }
+        },
+        {
+          "id": "guide-next",
+          "slug": "next",
+          "title": "Experimentar",
+          "order": 1,
+          "body": {
+            "format": "blocks",
+            "blocks": [
+              {
+                "id": "guide-next-text",
+                "type": "paragraph",
+                "text": "Experimente um pequeno ajuste e observe o que faz sentido manter."
+              }
+            ]
+          }
+        }
+      ],
+      "access": {
+        "mode": "public"
+      }
+    }
+  ],
+  "programs": [
+    {
+      "schemaVersion": "0.2",
+      "id": "sample-journey",
+      "slug": "seven-days-of-observation",
+      "kind": "journey",
+      "status": "preview",
+      "locale": "pt-BR",
+      "title": "Sete dias de observação",
+      "description": "Fixture genérica de engenharia, sem respostas ou dados de membros.",
+      "authors": [
+        "AMF"
+      ],
+      "durationDays": 7,
+      "access": {
+        "mode": "public"
+      },
+      "units": [
+        {
+          "id": "day-1",
+          "kind": "day",
+          "day": 1,
+          "order": 0,
+          "title": "Dia 1",
+          "publicationRefs": [
+            "sample-article"
+          ],
+          "missions": [
+            {
+              "id": "mission-1",
+              "title": "Uma pequena pausa",
+              "instructions": "Leia o conteúdo indicado e faça uma pausa de observação.",
+              "required": true
+            }
+          ],
+          "reflections": [
+            {
+              "id": "reflection-1",
+              "prompt": "O que chamou a sua atenção hoje?",
+              "required": false
+            }
+          ],
+          "checkIns": [
+            {
+              "id": "checkin-1",
+              "kind": "choice",
+              "prompt": "Como foi a sua experiência com esta etapa?",
+              "required": false,
+              "options": [
+                {
+                  "id": "complete",
+                  "label": "Fiz a pausa"
+                },
+                {
+                  "id": "later",
+                  "label": "Prefiro voltar depois"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "day-2",
+          "kind": "day",
+          "day": 2,
+          "order": 1,
+          "title": "Dia 2",
+          "publicationRefs": [
+            "sample-guide"
+          ],
+          "missions": [
+            {
+              "id": "mission-2",
+              "title": "Uma pequena pausa",
+              "instructions": "Leia o conteúdo indicado e faça uma pausa de observação.",
+              "required": true
+            }
+          ],
+          "reflections": [
+            {
+              "id": "reflection-2",
+              "prompt": "O que chamou a sua atenção hoje?",
+              "required": false
+            }
+          ],
+          "checkIns": [
+            {
+              "id": "checkin-2",
+              "kind": "choice",
+              "prompt": "Como foi a sua experiência com esta etapa?",
+              "required": false,
+              "options": [
+                {
+                  "id": "complete",
+                  "label": "Fiz a pausa"
+                },
+                {
+                  "id": "later",
+                  "label": "Prefiro voltar depois"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "day-3",
+          "kind": "day",
+          "day": 3,
+          "order": 2,
+          "title": "Dia 3",
+          "publicationRefs": [
+            "sample-guide"
+          ],
+          "missions": [
+            {
+              "id": "mission-3",
+              "title": "Uma pequena pausa",
+              "instructions": "Leia o conteúdo indicado e faça uma pausa de observação.",
+              "required": true
+            }
+          ],
+          "reflections": [
+            {
+              "id": "reflection-3",
+              "prompt": "O que chamou a sua atenção hoje?",
+              "required": false
+            }
+          ],
+          "checkIns": [
+            {
+              "id": "checkin-3",
+              "kind": "choice",
+              "prompt": "Como foi a sua experiência com esta etapa?",
+              "required": false,
+              "options": [
+                {
+                  "id": "complete",
+                  "label": "Fiz a pausa"
+                },
+                {
+                  "id": "later",
+                  "label": "Prefiro voltar depois"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "day-4",
+          "kind": "day",
+          "day": 4,
+          "order": 3,
+          "title": "Dia 4",
+          "publicationRefs": [
+            "sample-guide"
+          ],
+          "missions": [
+            {
+              "id": "mission-4",
+              "title": "Uma pequena pausa",
+              "instructions": "Leia o conteúdo indicado e faça uma pausa de observação.",
+              "required": true
+            }
+          ],
+          "reflections": [
+            {
+              "id": "reflection-4",
+              "prompt": "O que chamou a sua atenção hoje?",
+              "required": false
+            }
+          ],
+          "checkIns": [
+            {
+              "id": "checkin-4",
+              "kind": "choice",
+              "prompt": "Como foi a sua experiência com esta etapa?",
+              "required": false,
+              "options": [
+                {
+                  "id": "complete",
+                  "label": "Fiz a pausa"
+                },
+                {
+                  "id": "later",
+                  "label": "Prefiro voltar depois"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "day-5",
+          "kind": "day",
+          "day": 5,
+          "order": 4,
+          "title": "Dia 5",
+          "publicationRefs": [
+            "sample-guide"
+          ],
+          "missions": [
+            {
+              "id": "mission-5",
+              "title": "Uma pequena pausa",
+              "instructions": "Leia o conteúdo indicado e faça uma pausa de observação.",
+              "required": true
+            }
+          ],
+          "reflections": [
+            {
+              "id": "reflection-5",
+              "prompt": "O que chamou a sua atenção hoje?",
+              "required": false
+            }
+          ],
+          "checkIns": [
+            {
+              "id": "checkin-5",
+              "kind": "choice",
+              "prompt": "Como foi a sua experiência com esta etapa?",
+              "required": false,
+              "options": [
+                {
+                  "id": "complete",
+                  "label": "Fiz a pausa"
+                },
+                {
+                  "id": "later",
+                  "label": "Prefiro voltar depois"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "day-6",
+          "kind": "day",
+          "day": 6,
+          "order": 5,
+          "title": "Dia 6",
+          "publicationRefs": [
+            "sample-guide"
+          ],
+          "missions": [
+            {
+              "id": "mission-6",
+              "title": "Uma pequena pausa",
+              "instructions": "Leia o conteúdo indicado e faça uma pausa de observação.",
+              "required": true
+            }
+          ],
+          "reflections": [
+            {
+              "id": "reflection-6",
+              "prompt": "O que chamou a sua atenção hoje?",
+              "required": false
+            }
+          ],
+          "checkIns": [
+            {
+              "id": "checkin-6",
+              "kind": "choice",
+              "prompt": "Como foi a sua experiência com esta etapa?",
+              "required": false,
+              "options": [
+                {
+                  "id": "complete",
+                  "label": "Fiz a pausa"
+                },
+                {
+                  "id": "later",
+                  "label": "Prefiro voltar depois"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "day-7",
+          "kind": "day",
+          "day": 7,
+          "order": 6,
+          "title": "Dia 7",
+          "publicationRefs": [
+            "sample-guide"
+          ],
+          "missions": [
+            {
+              "id": "mission-7",
+              "title": "Uma pequena pausa",
+              "instructions": "Leia o conteúdo indicado e faça uma pausa de observação.",
+              "required": true
+            }
+          ],
+          "reflections": [
+            {
+              "id": "reflection-7",
+              "prompt": "O que chamou a sua atenção hoje?",
+              "required": false
+            }
+          ],
+          "checkIns": [
+            {
+              "id": "checkin-7",
+              "kind": "choice",
+              "prompt": "Como foi a sua experiência com esta etapa?",
+              "required": false,
+              "options": [
+                {
+                  "id": "complete",
+                  "label": "Fiz a pausa"
+                },
+                {
+                  "id": "later",
+                  "label": "Prefiro voltar depois"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "collections": [],
+  "metadata": {
+    "fixture": true
+  }
+}

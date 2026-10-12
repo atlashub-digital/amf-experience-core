@@ -1,6 +1,6 @@
 {
   "name": "@atlashub/amf-experience-core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Headless reusable product primitives for AMF projects",
   "type": "module",
   "license": "UNLICENSED",
@@ -14,16 +14,16 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "docs/JOURNEY.md",
+    "docs/ARTIFACTS.md"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
-    "prepare": "npm run build"
-  },
-  "dependencies": {
-    "@atlashub/amf-content-schema": "github:atlashub-digital/amf-content-schema#d5c8c2056b1ac4d82e40ae47cc968f9450b0b32b"
+    "pack:artifact": "npm run build && node scripts/pack-artifact.mjs",
+    "verify:artifact": "node scripts/verify-artifact.mjs"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
@@ -32,5 +32,8 @@
   },
   "engines": {
     "node": ">=22"
+  },
+  "peerDependencies": {
+    "@atlashub/amf-content-schema": "0.2.0"
   }
 }

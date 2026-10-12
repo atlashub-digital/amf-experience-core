@@ -3,6 +3,7 @@ import type { AccessPolicy } from "@atlashub/amf-content-schema";
 export type AccessContext = {
   authenticated: boolean;
   userId?: string;
+  projectId?: string;
   entitlementRefs?: string[];
   productRefs?: string[];
   planRefs?: string[];
@@ -28,6 +29,9 @@ export interface AccessResolver {
 
 export const conservativeAccessResolver: AccessResolver = {
   async resolve(policy, context) {
+    if (policy.requiresAuth && !context.authenticated) {
+      return { allowed: false, reason: "authentication-required" };
+    }
     if (policy.mode === "public") {
       return { allowed: true, reason: "public" };
     }
